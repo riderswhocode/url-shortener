@@ -9,7 +9,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb+srv://rootxenon-url-shortener:fRGWEQmwEME7dFs6@url-shortener.6vteg.mongodb.net/url-shortener')
+mongoose.connect('mongodb+srv://<username>:<password>@url-shortener.6vteg.mongodb.net/url-shortener')
 
 mongoose.connection.once('open', () => {
     console.log("Successfully connected to the Database");

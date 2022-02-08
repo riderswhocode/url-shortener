@@ -1,5 +1,9 @@
 const URLModel = require('../models/url.model')
 
+exports.index = (req, res) => {
+    res.render("index")
+}
+
 exports.shorten_url = async (req, res, next) => {
 
     const url = await URLModel.create({

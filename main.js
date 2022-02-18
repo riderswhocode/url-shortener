@@ -14,7 +14,10 @@ app.use(bodyParser.json())
 app.use(static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs')
 
-mongoose.connect('mongodb+srv://rootxenon-url-shortener:fRGWEQmwEME7dFs6@url-shortener.6vteg.mongodb.net/url-shortener')
+const onlineCon = 'mongodb+srv://rootxenon-url-shortener:fRGWEQmwEME7dFs6@url-shortener.6vteg.mongodb.net/url-shortener'
+const localCon = 'mongodb://localhost/url-shortener'
+
+mongoose.connect(localCon)
 
 mongoose.connection.once('open', () => {
     console.log("Successfully connected to the Database");

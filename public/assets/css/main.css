@@ -23,3 +23,63 @@ body {
     width: 100%;
     height: 100vh;
 }
+
+.textbox {
+    padding: 5px 10px;
+    max-width: 80%;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    color: #068C7C;
+    background-color: #ffffff;
+}
+
+.btn-shorten {
+    font-size: 1rem;
+    padding: 5px 12px;
+    border: 1px solid #068C7C;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

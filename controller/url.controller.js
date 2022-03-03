@@ -5,14 +5,26 @@ exports.index = (req, res) => {
 }
 
 exports.shorten_url = async (req, res, next) => {
-
-    const url = await URLModel.create({
-        fullUrl: req.body.fullUrl,
-        user_id: req.body.user_id
-    })
-    res.status(200).send({
-        'status': 200,
-        'payload': url
+    
+    await URLModel.find({ fullUrl: req.body.fullUrl})
+    .then(async exists => {
+        if (exists) {
+            res.status(200).send({
+                'status': 200,
+                'host': req.hostname,
+                'payload': exists
+            })
+        } else {
+            const url = await URLModel.create({
+                fullUrl: req.body.fullUrl,
+                user_id: req.body.user_id
+            })
+            res.status(200).send({
+                'status': 200,
+                'host': req.hostname,
+                'payload': url
+            })
+        }
     })
 }
 
